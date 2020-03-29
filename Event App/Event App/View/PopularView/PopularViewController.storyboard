@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--PopularViewController-->
+        <scene sceneID="Gb8-Sq-JaW">
+            <objects>
+                <viewController storyboardIdentifier="PopularViewController" id="qBQ-Xt-TbA" userLabel="PopularViewController" customClass="SecondViewController" customModule="Event_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Qq-9e-nI6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="A65-me-9DF">
+                                <rect key="frame" x="106" y="426.5" width="202" height="43"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdh-in-Y3f">
+                                <rect key="frame" x="99.5" y="477.5" width="215" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Jdh-in-Y3f" firstAttribute="top" secondItem="A65-me-9DF" secondAttribute="bottom" constant="8" symbolic="YES" id="FIr-Ww-xQ4"/>
+                            <constraint firstItem="Jdh-in-Y3f" firstAttribute="centerX" secondItem="A65-me-9DF" secondAttribute="centerX" id="Gvw-eY-1Wk"/>
+                            <constraint firstAttribute="centerX" secondItem="A65-me-9DF" secondAttribute="centerX" id="a5n-S4-5uP"/>
+                            <constraint firstAttribute="centerY" secondItem="A65-me-9DF" secondAttribute="centerY" id="cLQ-B9-s3N"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Fkp-aI-Qyj"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Vector" selectedImage="Vector" id="mqv-hK-CnL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPN-ba-hBe" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="360"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Vector" width="30" height="28"/>
+    </resources>
+</document>

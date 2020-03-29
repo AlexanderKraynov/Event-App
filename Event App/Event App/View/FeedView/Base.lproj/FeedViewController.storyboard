@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--FeedViewController-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController storyboardIdentifier="FeedViewController" id="9pv-A4-QxB" userLabel="FeedViewController" customClass="FeedViewController" customModule="Event_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Поиск" showsBookmarkButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3mh-31-dIA">
+                                <rect key="frame" x="30" y="74" width="354" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZdX-oI-F7x">
+                                <rect key="frame" x="0.0" y="186" width="414" height="676"/>
+                            </scrollView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L85-9T-e3z" customClass="FeedViewButtonBar" customModule="Event_App" customModuleProvider="target">
+                                <rect key="frame" x="10" y="141" width="200" height="43"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8Yc-j3-bAq"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qsB-hH-Rdv">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FeedViewButtonBarCell" id="941-k0-gv2">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AKI-E4-cXY">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="L85-9T-e3z" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ZdX-oI-F7x" secondAttribute="trailing" id="0p5-Ry-45J"/>
+                            <constraint firstItem="3mh-31-dIA" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="30" id="0xW-8u-apr"/>
+                            <constraint firstItem="ZdX-oI-F7x" firstAttribute="centerX" secondItem="3mh-31-dIA" secondAttribute="centerX" id="3Id-Zg-ld8"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="3mh-31-dIA" secondAttribute="trailing" constant="30" id="54u-QT-G8N"/>
+                            <constraint firstItem="ZdX-oI-F7x" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="CIq-rZ-ivT"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="ZdX-oI-F7x" secondAttribute="bottom" id="NcW-gM-RuW"/>
+                            <constraint firstItem="ZdX-oI-F7x" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="186" id="Pv0-jr-Bpw"/>
+                            <constraint firstItem="ZdX-oI-F7x" firstAttribute="top" secondItem="L85-9T-e3z" secondAttribute="bottom" constant="2" id="g7c-eE-jal"/>
+                            <constraint firstItem="L85-9T-e3z" firstAttribute="top" secondItem="3mh-31-dIA" secondAttribute="bottom" constant="11" id="hu2-zW-GqJ"/>
+                            <constraint firstItem="L85-9T-e3z" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="iCR-LI-wqa"/>
+                            <constraint firstItem="3mh-31-dIA" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="30" id="raB-Mm-loV"/>
+                            <constraint firstItem="ZdX-oI-F7x" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="wu6-j0-5tM"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L85-9T-e3z" secondAttribute="trailing" id="z7Q-Sa-gZu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Component 16" selectedImage="Component 16" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="buttonBarView" destination="L85-9T-e3z" id="Nft-Td-jhf"/>
+                        <outlet property="containerView" destination="ZdX-oI-F7x" id="86l-Gv-L1B"/>
+                        <outlet property="searchBar" destination="3mh-31-dIA" id="GNF-T3-wAu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="469.56521739130437" y="712.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Component 16" width="42" height="28"/>
+    </resources>
+</document>
