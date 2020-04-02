@@ -12,6 +12,7 @@
 #include <cppconn/prepared_statement.h>
 
 #include "userData.hpp"
+#include "eventData.hpp"
 
 class EaDb
 {
@@ -25,6 +26,8 @@ public:
   [[nodiscard]] std::vector<uint32_t> getCustomEvents()              const;
 
   [[nodiscard]] uint32_t addUser(UserData userData);
+  [[nodiscard]] uint32_t addCustomEvent(const EventData& eventData) const;
+  [[nodiscard]] uint32_t addKudagoEvent(uint32_t kudagoId) const;
 
   [[nodiscard]] bool userExist(uint32_t userId)   const noexcept;
   [[nodiscard]] bool eventExist(uint32_t eventId) const noexcept;

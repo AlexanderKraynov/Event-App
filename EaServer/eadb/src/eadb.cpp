@@ -1,5 +1,32 @@
 #include "eadb.hpp"
 
+#include <sstream>
+
+#include <windows.h>
+#include <stringapiset.h>
+
+std::string utf8Encode(const std::wstring& wstr)
+{
+  if (wstr.empty()) return std::string();
+  auto sizeNeeded = WideCharToMultiByte(CP_UTF8, 0, &wstr[0], static_cast<int>(wstr.size()),
+                                        nullptr, 0, nullptr, nullptr);
+  std::string strTo(sizeNeeded, 0);
+  WideCharToMultiByte(CP_UTF8, 0, &wstr[0], static_cast<int>(wstr.size()), 
+    &strTo[0], sizeNeeded, nullptr, nullptr);
+  return strTo;
+}
+
+std::wstring utf8Decode(const std::string& str)
+{
+  if (str.empty()) return std::wstring();
+  auto sizeNeeded = MultiByteToWideChar(CP_UTF8, 0, &str[0], static_cast<int>(str.size()),
+                                        nullptr, 0);
+  std::wstring wstrTo(sizeNeeded, 0);
+  MultiByteToWideChar(CP_UTF8, 0, &str[0], static_cast<int>(str.size()), 
+    &wstrTo[0], sizeNeeded);
+  return wstrTo;
+}
+
 EaDb::EaDb(std::string address, std::string user, std::string password, std::string dbSchema):
   address_(std::move(address)),
   user_(std::move(user)),
@@ -22,20 +49,22 @@ uint32_t EaDb::getUserCount() const
 
 uint32_t EaDb::getEventCount() const
 {
-  return top_user_id_;
+  std::unique_ptr<sql::ResultSet> result{ statement_->executeQuery("select count(1) from event_table") };
+  return result->next() ? result->getInt(1) : throw std::runtime_error{ "sql error in getEventCount" };
 }
 
-std::vector<uint32_t> EaDb::getUserEvents(uint32_t userId) const
+std::vector<uint32_t> EaDb::getUserEvents(const uint32_t userId) const
 {
-  static PrepStmt getUserEventsStmt{ connection_->prepareStatement(
-    "select event_id from event_participant_table where user_id = ?"
-  ) };
   expect_user_exist_(userId, "invalid user id was provided to getUserEvents");
-  getUserEventsStmt->setInt(1, userId);
+  static PrepStmt getUserEventsStmt{ connection_->prepareStatement(
+    "select get_user_events(?)"
+  ) };
+  getUserEventsStmt->setUInt(1, userId);
   Result result{ getUserEventsStmt->executeQuery() };
-  std::vector<uint32_t> eventIds;
-  while (result->next()) {
-    eventIds.emplace_back(result->getInt(1));
+  std::vector<uint32_t> eventIds(result->rowsCount());
+  for (auto& id : eventIds) {
+    result->next();
+    id = result->getUInt(1);
   }
   return eventIds;
 }
@@ -43,11 +72,12 @@ std::vector<uint32_t> EaDb::getUserEvents(uint32_t userId) const
 std::vector<uint32_t> EaDb::getCustomEvents() const
 {
   Result result{ statement_->executeQuery(
-  "select id from event_table where kudago_id is null"
+  "call get_custom_events()"
   )};
-  std::vector<uint32_t> eventIds;
-  while (result->next()) {
-    eventIds.emplace_back(result->getInt(1));
+  std::vector<uint32_t> eventIds(result->rowsCount());
+  for (auto& id : eventIds) {
+    result->next();
+    id = result->getUInt(1);
   }
   return eventIds;
 }
@@ -55,49 +85,74 @@ std::vector<uint32_t> EaDb::getCustomEvents() const
 uint32_t EaDb::addUser(const UserData userData)
 {
   static PrepStmt userInsertStmt{ connection_->prepareStatement(
-    "insert into user_table value (null, ?, ?)"
+    "select add_user(?, ?)"
   )};
   userInsertStmt->setInt(1, userData.foreignId);
   userInsertStmt->setInt(2, userData.foreignServerId);
-  if (userInsertStmt->execute()) {
-    throw std::runtime_error{ "sql error in addUser" };
-  }
-  ++top_user_id_;
-  return top_user_id_;
+  Result result{ userInsertStmt->executeQuery() };
+  result->next();
+  auto newIndex = result->getUInt(1);
+  top_user_id_ = newIndex ? newIndex : top_user_id_;
+  return newIndex;
 }
 
-bool EaDb::userExist(uint32_t userId) const noexcept
+uint32_t EaDb::addCustomEvent(const EventData& eventData) const
+{
+  static PrepStmt createCustomEventStmt{ connection_->prepareStatement(
+    "select create_custom_event(?, ?)"
+  ) };
+ 
+  std::stringstream td{ utf8Encode(eventData.title) };
+  std::stringstream bd{ utf8Encode(eventData.brief) };
+
+  createCustomEventStmt->setBlob(1, &td);
+  createCustomEventStmt->setBlob(2, &bd);
+  Result result{ createCustomEventStmt->executeQuery() };
+  result->next();
+  return result->getUInt(1);
+}
+
+uint32_t EaDb::addKudagoEvent(const uint32_t kudagoId) const
+{
+  static PrepStmt getEventFromKudagoStmt{ connection_->prepareStatement(
+    "select get_event_from_kudago(?)"
+  ) };
+  getEventFromKudagoStmt->setUInt(1, kudagoId);
+  Result result{ getEventFromKudagoStmt->executeQuery() };
+  result->next();
+  return result->getUInt(1);
+}
+
+bool EaDb::userExist(const uint32_t userId) const noexcept
 {
   return userId > 0 && userId <= top_user_id_;
 }
 
-bool EaDb::eventExist(uint32_t eventId) const noexcept
+bool EaDb::eventExist(const uint32_t eventId) const noexcept
 {
   return eventId > 0 && eventId <= top_event_id_;
 }
 
-void EaDb::bindUserToEvent(uint32_t userId, uint32_t eventId) const
+void EaDb::bindUserToEvent(const uint32_t userId, const uint32_t eventId) const
 {
   expect_user_exist_(userId, "invalid user id was provided to bindUserToEvent");
   expect_event_exist_(eventId, "invalid event id was provided to bindUserToEvent");
   static PrepStmt bindUserEventStmt{ connection_->prepareStatement(
-    "insert into event_participant_table value(? , ? )"
+    "call bind_user_to_event(?, ?)"
   )};
   bindUserEventStmt->setInt(1, userId);
   bindUserEventStmt->setInt(2, eventId);
-  if (bindUserEventStmt->execute()) {
-    throw std::runtime_error{ "sql error in bindUserToEvent" };
-  }
+  bindUserEventStmt->execute();
 }
 
-void EaDb::expect_user_exist_(uint32_t userId, const char* errorMessage) const
+void EaDb::expect_user_exist_(const uint32_t userId, const char* errorMessage) const
 {
   if (!userExist(userId)) {
     throw std::runtime_error{ errorMessage };
   }
 }
 
-void EaDb::expect_event_exist_(uint32_t eventId, const char* errorMessage) const
+void EaDb::expect_event_exist_(const uint32_t eventId, const char* errorMessage) const
 {
   if (!eventExist(eventId)) {
     throw std::runtime_error{ errorMessage };

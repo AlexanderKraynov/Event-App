@@ -6,11 +6,9 @@ int main()
 {
   try {
 
-    EaDb eaDb{ "tcp://127.0.0.1:3306", "root", "AyanamiRei3", "ea_db" };
+    EaDb eaDb{ "tcp://127.0.0.1:3306", "root", "", "ea_db" };
 
-    auto events = eaDb.getUserEvents(1);
-
-    std::for_each(events.begin(), events.end(), [&](auto& i) { std::cout << i << " "; });
+    std::cout << eaDb.addCustomEvent({ L"русские", L"вперед" });
 
     return EXIT_SUCCESS;
   } catch (const std::exception& e) {

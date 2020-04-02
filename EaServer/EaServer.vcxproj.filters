@@ -29,5 +29,8 @@
     <ClInclude Include="eadb\inc\userData.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="eadb\inc\eventData.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

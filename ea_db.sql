@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 02 2020 г., 19:20
+-- Время создания: Апр 02 2020 г., 22:12
 -- Версия сервера: 10.4.11-MariaDB
 -- Версия PHP: 7.4.3
 
@@ -26,7 +26,7 @@ DELIMITER $$
 --
 -- Процедуры
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `bind_use_to_event` (IN `u_id` INT UNSIGNED, IN `e_id` INT UNSIGNED)  begin
+CREATE DEFINER=`root`@`localhost` PROCEDURE `bind_user_to_event` (IN `u_id` INT UNSIGNED, IN `e_id` INT UNSIGNED)  begin
     declare same int unsigned;
     select count(1) into same from event_participant_table where event_id = e_id and user_id = u_id;
     if same = 0 then
@@ -69,7 +69,7 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `add_user` (`foreign_user_id` INT UNS
     END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `create_custom_event` (`_title` VARCHAR(120), `_brief` BLOB) RETURNS INT(10) UNSIGNED begin
+CREATE DEFINER=`root`@`localhost` FUNCTION `create_custom_event` (`_title` TINYBLOB, `_brief` BLOB) RETURNS INT(10) UNSIGNED begin
     insert into event_details_table value (null, _title, _brief);
     insert into event_table value (null, null, last_insert_id());
     return last_insert_id();
@@ -96,7 +96,7 @@ DELIMITER ;
 
 CREATE TABLE `event_details_table` (
   `id` int(10) UNSIGNED NOT NULL,
-  `title` varchar(120) NOT NULL,
+  `title` tinyblob NOT NULL,
   `brief` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -195,13 +195,13 @@ ALTER TABLE `user_table`
 -- AUTO_INCREMENT для таблицы `event_details_table`
 --
 ALTER TABLE `event_details_table`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `event_table`
 --
 ALTER TABLE `event_table`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT для таблицы `foreign_server_table`

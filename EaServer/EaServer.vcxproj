@@ -167,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="eadb\inc\eadb.hpp" />
+    <ClInclude Include="eadb\inc\eventData.hpp" />
     <ClInclude Include="eadb\inc\userData.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
