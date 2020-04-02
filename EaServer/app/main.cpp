@@ -6,17 +6,15 @@ int main()
 {
   try {
 
-    EaDb eaDb{ "tcp://127.0.0.1:3306", "root", "", "ea_db" };
+    EaDb eaDb{ "tcp://127.0.0.1:3306", "root", "AyanamiRei3", "ea_db" };
 
-    std::cout << eaDb.getUserCount() << "\n";
+    auto events = eaDb.getUserEvents(1);
 
-    auto id = eaDb.addUser({ 333, 1 });
-
-    std::cout << id << " : " << eaDb.getUserCount() << "\n";
+    std::for_each(events.begin(), events.end(), [&](auto& i) { std::cout << i << " "; });
 
     return EXIT_SUCCESS;
   } catch (const std::exception& e) {
-    std::cerr << e.what() << '\n';
+    std::cerr << e.what() << std::endl;
     return EXIT_FAILURE;
   }
 }
