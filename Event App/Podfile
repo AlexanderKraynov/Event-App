@@ -5,6 +5,7 @@ target 'Event App' do
   pod 'SwiftLint'
   pod 'XLPagerTabStrip', '~> 9.0'
   pod 'Reusable'
+  pod 'Cosmos', '~> 21.0'
   target 'Event AppTests' do
     inherit! :search_paths
     # Pods for testing

@@ -19,11 +19,17 @@
 		84E7B6FA242D2DF500B542E7 /* Event_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7B6F9242D2DF500B542E7 /* Event_AppUITests.swift */; };
 		84E7B708242D339000B542E7 /* PopularViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E7B707242D339000B542E7 /* PopularViewController.storyboard */; };
 		84E7B70A242D391000B542E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E7B709242D391000B542E7 /* Main.storyboard */; };
+		84F14D23243771D600D4EF29 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F14D22243771D600D4EF29 /* EventView.swift */; };
+		84F6D3AC243764AD00F12E60 /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F6D3AB243764AC00F12E60 /* EventView.xib */; };
 		84F831042430AF6F0042F317 /* FeedViewButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F831032430AF6F0042F317 /* FeedViewButtonBar.swift */; };
 		84F831082430B5BD0042F317 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F831072430B5BD0042F317 /* MapViewController.swift */; };
 		84F8310B2430B6720042F317 /* InnerFeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F8310A2430B6720042F317 /* InnerFeedViewController.storyboard */; };
 		84F8310D2430BEA20042F317 /* InnerFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8310C2430BEA20042F317 /* InnerFeedViewController.swift */; };
 		84F8310F2430CC7D0042F317 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F8310E2430CC7D0042F317 /* MapViewController.storyboard */; };
+		84FACFEF243386D3008EA231 /* InnerFeedViewTypeButtonsCellController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FACFEE243386D3008EA231 /* InnerFeedViewTypeButtonsCellController.xib */; };
+		84FACFF124338810008EA231 /* InnerFeedViewTypeButtonsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACFF024338810008EA231 /* InnerFeedViewTypeButtonsCellController.swift */; };
+		84FACFF62433A8BC008EA231 /* Montserrat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84FACFF52433A144008EA231 /* Montserrat.ttf */; };
+		84FACFF82433AF1E008EA231 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACFF72433AF1E008EA231 /* String.swift */; };
 		B5739FBBCD4362E6A9C434E8 /* Pods_Event_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 696FC830F97BC8BA533C6969 /* Pods_Event_App.framework */; };
 		CADFF4ABF67EE4C793D7E7D7 /* Pods_Event_App_Event_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2501597AA7F32ACA7EA0F9 /* Pods_Event_App_Event_AppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -67,11 +73,17 @@
 		84E7B6FB242D2DF500B542E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E7B707242D339000B542E7 /* PopularViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopularViewController.storyboard; sourceTree = "<group>"; };
 		84E7B709242D391000B542E7 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		84F14D22243771D600D4EF29 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		84F6D3AB243764AC00F12E60 /* EventView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventView.xib; sourceTree = "<group>"; };
 		84F831032430AF6F0042F317 /* FeedViewButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewButtonBar.swift; sourceTree = "<group>"; };
 		84F831072430B5BD0042F317 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		84F8310A2430B6720042F317 /* InnerFeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InnerFeedViewController.storyboard; sourceTree = "<group>"; };
 		84F8310C2430BEA20042F317 /* InnerFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerFeedViewController.swift; sourceTree = "<group>"; };
 		84F8310E2430CC7D0042F317 /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
+		84FACFEE243386D3008EA231 /* InnerFeedViewTypeButtonsCellController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InnerFeedViewTypeButtonsCellController.xib; sourceTree = "<group>"; };
+		84FACFF024338810008EA231 /* InnerFeedViewTypeButtonsCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerFeedViewTypeButtonsCellController.swift; sourceTree = "<group>"; };
+		84FACFF52433A144008EA231 /* Montserrat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserrat.ttf; sourceTree = "<group>"; };
+		84FACFF72433AF1E008EA231 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8E2501597AA7F32ACA7EA0F9 /* Pods_Event_App_Event_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Event_App_Event_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C04EEC7C93B309A2C3D4EDC /* Pods-Event App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event App.release.xcconfig"; path = "Target Support Files/Pods-Event App/Pods-Event App.release.xcconfig"; sourceTree = "<group>"; };
 		A022D4457009332F0A8979C5 /* Pods_Event_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Event_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,12 +167,14 @@
 		84E7B6D4242D2DF000B542E7 /* Event App */ = {
 			isa = PBXGroup;
 			children = (
+				84FACFF42433A13D008EA231 /* Fonts */,
 				84F831102430D60E0042F317 /* View */,
 				84E7B6D5242D2DF000B542E7 /* AppDelegate.swift */,
 				84E7B6D7242D2DF000B542E7 /* SceneDelegate.swift */,
 				84E7B6E0242D2DF500B542E7 /* Assets.xcassets */,
 				84E7B6E2242D2DF500B542E7 /* LaunchScreen.storyboard */,
 				84E7B6E5242D2DF500B542E7 /* Info.plist */,
+				84FACFF72433AF1E008EA231 /* String.swift */,
 			);
 			path = "Event App";
 			sourceTree = "<group>";
@@ -203,6 +217,10 @@
 				84F831072430B5BD0042F317 /* MapViewController.swift */,
 				84F8310E2430CC7D0042F317 /* MapViewController.storyboard */,
 				84F831032430AF6F0042F317 /* FeedViewButtonBar.swift */,
+				84FACFEE243386D3008EA231 /* InnerFeedViewTypeButtonsCellController.xib */,
+				84FACFF024338810008EA231 /* InnerFeedViewTypeButtonsCellController.swift */,
+				84F6D3AB243764AC00F12E60 /* EventView.xib */,
+				84F14D22243771D600D4EF29 /* EventView.swift */,
 			);
 			path = FeedView;
 			sourceTree = "<group>";
@@ -214,6 +232,14 @@
 				84E7B6DB242D2DF000B542E7 /* SecondViewController.swift */,
 			);
 			path = PopularView;
+			sourceTree = "<group>";
+		};
+		84FACFF42433A13D008EA231 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				84FACFF52433A144008EA231 /* Montserrat.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,9 +354,12 @@
 			files = (
 				84F8310B2430B6720042F317 /* InnerFeedViewController.storyboard in Resources */,
 				84E7B708242D339000B542E7 /* PopularViewController.storyboard in Resources */,
+				84FACFF62433A8BC008EA231 /* Montserrat.ttf in Resources */,
+				84FACFEF243386D3008EA231 /* InnerFeedViewTypeButtonsCellController.xib in Resources */,
 				84E7B70A242D391000B542E7 /* Main.storyboard in Resources */,
 				84E7B6E4242D2DF500B542E7 /* LaunchScreen.storyboard in Resources */,
 				84E7B6E1242D2DF500B542E7 /* Assets.xcassets in Resources */,
+				84F6D3AC243764AD00F12E60 /* EventView.xib in Resources */,
 				84E7B6DF242D2DF000B542E7 /* FeedViewController.storyboard in Resources */,
 				84F8310F2430CC7D0042F317 /* MapViewController.storyboard in Resources */,
 			);
@@ -479,12 +508,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E7B6DC242D2DF000B542E7 /* SecondViewController.swift in Sources */,
+				84FACFF82433AF1E008EA231 /* String.swift in Sources */,
 				84F831082430B5BD0042F317 /* MapViewController.swift in Sources */,
 				84F8310D2430BEA20042F317 /* InnerFeedViewController.swift in Sources */,
 				84E7B6DA242D2DF000B542E7 /* FeedViewController.swift in Sources */,
+				84F14D23243771D600D4EF29 /* EventView.swift in Sources */,
 				84E7B6D6242D2DF000B542E7 /* AppDelegate.swift in Sources */,
 				84F831042430AF6F0042F317 /* FeedViewButtonBar.swift in Sources */,
 				84E7B6D8242D2DF000B542E7 /* SceneDelegate.swift in Sources */,
+				84FACFF124338810008EA231 /* InnerFeedViewTypeButtonsCellController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
