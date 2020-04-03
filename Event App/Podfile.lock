@@ -1,4 +1,5 @@
 PODS:
+  - Cosmos (21.0.0)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
@@ -8,21 +9,24 @@ PODS:
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
+  - Cosmos (~> 21.0)
   - Reusable
   - SwiftLint
   - XLPagerTabStrip (~> 9.0)
 
 SPEC REPOS:
   trunk:
+    - Cosmos
     - Reusable
     - SwiftLint
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
+  Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: e005b9bd62bb66dcc9813e9c11c6e23c444afdf8
+PODFILE CHECKSUM: dd2bb4e1d551cfa0bdc472f6999f63081b431b39
 
 COCOAPODS: 1.9.1

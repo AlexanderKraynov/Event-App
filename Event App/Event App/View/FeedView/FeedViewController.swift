@@ -25,6 +25,7 @@ class FeedViewController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarItemBackgroundColor = UIColor.white.withAlphaComponent(0)
         settings.style.buttonBarItemTitleColor = UIColor.black
         settings.style.buttonBarItemLeftRightMargin = 8
+        containerView.isScrollEnabled = false
     }
 
     func setUpSearchBar() {

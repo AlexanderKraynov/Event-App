@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NOa-Wt-f1J" customClass="InnerFeedViewTypeButtonsCellController" customModule="Event_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="olg-8q-HWi">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlD-Z3-pql">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="JlD-Z3-pql" secondAttribute="trailing" id="5RM-G9-17L"/>
+                    <constraint firstItem="JlD-Z3-pql" firstAttribute="top" secondItem="olg-8q-HWi" secondAttribute="top" id="8zo-V9-WV5"/>
+                    <constraint firstItem="JlD-Z3-pql" firstAttribute="leading" secondItem="olg-8q-HWi" secondAttribute="leading" id="H7D-3v-Kwf"/>
+                    <constraint firstAttribute="bottom" secondItem="JlD-Z3-pql" secondAttribute="bottom" id="fUt-TI-ROl"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="50" height="50"/>
+            <connections>
+                <outlet property="button" destination="JlD-Z3-pql" id="u4m-ue-mOb"/>
+            </connections>
+            <point key="canvasLocation" x="130.43478260869566" y="156.69642857142856"/>
+        </collectionViewCell>
+    </objects>
+</document>
