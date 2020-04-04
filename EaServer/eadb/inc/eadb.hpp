@@ -18,7 +18,7 @@ class EaDb
 {
 public:
 
-  EaDb(std::string address, std::string user, std::string password, std::string dbSchema);
+  EaDb(const std::string& address, const std::string& user, const std::string& password, const std::string& dbSchema);
 
   [[nodiscard]] uint32_t              getUserCount()                 const;
   [[nodiscard]] uint32_t              getEventCount()                const;
@@ -27,7 +27,7 @@ public:
 
   [[nodiscard]] uint32_t addUser(UserData userData);
   [[nodiscard]] uint32_t addCustomEvent(const EventData& eventData) const;
-  [[nodiscard]] uint32_t addKudagoEvent(uint32_t kudagoId) const;
+  [[nodiscard]] uint32_t addKudagoEvent(uint32_t kudagoId)          const;
 
   [[nodiscard]] bool userExist(uint32_t userId)   const noexcept;
   [[nodiscard]] bool eventExist(uint32_t eventId) const noexcept;
@@ -41,11 +41,6 @@ private:
 
   void expect_user_exist_(uint32_t userId, const char* errorMessage)   const;
   void expect_event_exist_(uint32_t eventId, const char* errorMessage) const;
-
-  std::string                              address_;
-  std::string                              user_;
-  std::string                              password_;
-  std::string                              db_schema_;
                                            
   sql::Driver*                             driver_;
   std::unique_ptr<sql::Connection>         connection_;

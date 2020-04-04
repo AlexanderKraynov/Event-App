@@ -95,7 +95,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SulutionDir)utils\inc;$(SulutionDir)utils\inl;$(SolutionDir)eadb\inc;C:\Dev\Vendor\Cpp\MySQL Connector C++ 8.0\include\jdbc;C:\Dev\Vendor\Cpp\boost_1_72_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SulutionDir)consumer\inc;C:\Dev\Vendor\Cpp\json\single_include;$(SulutionDir)utils\inc;$(SulutionDir)utils\inl;$(SolutionDir)eadb\inc;C:\Dev\Vendor\Cpp\MySQL Connector C++ 8.0\include\jdbc;C:\Dev\Vendor\Cpp\boost_1_72_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -111,7 +111,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SulutionDir)utils\inc;$(SulutionDir)utils\inl;$(SolutionDir)eadb\inc;C:\Dev\Vendor\Cpp\MySQL Connector C++ 8.0\include\jdbc;C:\Dev\Vendor\Cpp\boost_1_72_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SulutionDir)consumer\inc;C:\Dev\Vendor\Cpp\json\single_include;$(SulutionDir)utils\inc;$(SulutionDir)utils\inl;$(SolutionDir)eadb\inc;C:\Dev\Vendor\Cpp\MySQL Connector C++ 8.0\include\jdbc;C:\Dev\Vendor\Cpp\boost_1_72_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -129,8 +129,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SulutionDir)utils\inc;$(SulutionDir)utils\inl;$(SolutionDir)eadb\inc;C:\Dev\Vendor\Cpp\MySQL Connector C++ 8.0\include\jdbc;C:\Dev\Vendor\Cpp\boost_1_72_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SulutionDir)consumer\inc;C:\Dev\Vendor\Cpp\json\single_include;$(SulutionDir)utils\inc;$(SulutionDir)utils\inl;$(SolutionDir)eadb\inc;C:\Dev\Vendor\Cpp\MySQL Connector C++ 8.0\include\jdbc;C:\Dev\Vendor\Cpp\boost_1_72_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,8 +150,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SulutionDir)utils\inc;$(SulutionDir)utils\inl;$(SolutionDir)eadb\inc;C:\Dev\Vendor\Cpp\MySQL Connector C++ 8.0\include\jdbc;C:\Dev\Vendor\Cpp\boost_1_72_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SulutionDir)consumer\inc;C:\Dev\Vendor\Cpp\json\single_include;$(SulutionDir)utils\inc;$(SulutionDir)utils\inl;$(SolutionDir)eadb\inc;C:\Dev\Vendor\Cpp\MySQL Connector C++ 8.0\include\jdbc;C:\Dev\Vendor\Cpp\boost_1_72_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -163,10 +165,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="app\main.cpp" />
+    <ClCompile Include="consumer\src\handlersFactory.cpp" />
     <ClCompile Include="eadb\src\aseadb.cpp" />
     <ClCompile Include="eadb\src\eadb.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="consumer\inc\handlersFactory.hpp" />
     <ClInclude Include="eadb\inc\aseadb.hpp" />
     <ClInclude Include="eadb\inc\eadb.hpp" />
     <ClInclude Include="eadb\inc\eventData.hpp" />

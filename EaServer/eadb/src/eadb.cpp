@@ -4,15 +4,11 @@
 
 #include "utf8.inl"
 
-EaDb::EaDb(std::string address, std::string user, std::string password, std::string dbSchema):
-  address_(std::move(address)),
-  user_(std::move(user)),
-  password_(std::move(password)),
-  db_schema_(std::move(dbSchema)),
+EaDb::EaDb(const std::string& address, const std::string& user, const std::string& password, const std::string& dbSchema):
   driver_(get_driver_instance()),
-  connection_(driver_->connect(address_, user_, password_))
+  connection_(driver_->connect(address, user, password))
 {
-  connection_->setSchema(db_schema_);
+  connection_->setSchema(dbSchema);
   statement_.reset(connection_->createStatement());
   top_user_id_ = getUserCount();
   top_event_id_ = getEventCount();
