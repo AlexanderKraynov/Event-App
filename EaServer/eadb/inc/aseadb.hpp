@@ -1,25 +1,29 @@
 #pragma once
 
-#include <queue>
 #include <thread>
-#include <mutex>
 
 #include "eadb.hpp"
 #include "threadSafeQueue.hpp"
 
-class AsyncEaDb
+class AsyncEaDb : public std::enable_shared_from_this<AsyncEaDb>
 {
 public:
 
-  using Handler = std::function<void(EaDb&)>;
+  using Handler = std::function<void(EaDb*)>;
 
   AsyncEaDb(std::string address, std::string user, std::string password, std::string dbSchema);
+
+  ~AsyncEaDb();
 
   void push(const Handler& handler);
 
 private:
 
-  ThreadSafeQueue<Handler> handler_queue_;
-  std::thread              hq_thread_;
-  EaDb                     ea_db_;
+  void handle_();
+
+  bool                          exit_{ false };
+
+  EaDb                          ea_db_;
+  std::thread                   handler_thread_;
+  ThreadSafeQueue<Handler>      handler_queue_;
 };

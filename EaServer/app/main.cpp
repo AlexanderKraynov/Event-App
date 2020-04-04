@@ -1,14 +1,15 @@
 #include <iostream>
 
-#include "eadb.hpp"
+#include "aseadb.hpp"
 
 int main()
 {
   try {
 
-    EaDb eaDb{ "tcp://127.0.0.1:3306", "root", "", "ea_db" };
+    AsyncEaDb asyncEaDb{ "tcp://127.0.0.1:3306", "root", "", "ea_db" };
 
-    std::cout << eaDb.addCustomEvent({ L"русские", L"вперед" });
+    asyncEaDb.push([](EaDb* eaDb) { std::cout << eaDb->addKudagoEvent(30032001); });
+    asyncEaDb.push([](EaDb* eaDb) { std::cout << eaDb->addCustomEvent({L"test", L"test"}); });
 
     return EXIT_SUCCESS;
   } catch (const std::exception& e) {

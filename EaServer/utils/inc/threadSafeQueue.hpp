@@ -9,10 +9,12 @@ class ThreadSafeQueue
 {
 public:
 
-  void push(const T&);
-  T    pop();
+  void               push(const T&);
+  T                  pop();
+  [[nodiscard]] bool empty() noexcept;
 
   void waitForData();
+  void notifyAll();
 
 private:
 
@@ -41,10 +43,23 @@ T ThreadSafeQueue<T>::pop()
 }
 
 template <typename T>
+bool ThreadSafeQueue<T>::empty() noexcept
+{
+  std::lock_guard lock{ queue_mutex_ };
+  return queue_.empty();
+}
+
+template <typename T>
 void ThreadSafeQueue<T>::waitForData()
 {
   std::unique_lock lock{ queue_mutex_ };
   while (queue_.empty()) {
     condition_.wait(lock);
   }
+}
+
+template <typename T>
+void ThreadSafeQueue<T>::notifyAll()
+{
+  condition_.notify_all();
 }
