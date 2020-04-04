@@ -6,26 +6,13 @@
 int main()
 {
   try {
-    AsyncEaDb asyncEaDb{ "tcp://127.0.0.1:3306", "root", "AyanamiRei3", "ea_db" };
+    AsyncEaDb asyncEaDb{ "tcp://127.0.0.1:3306", "root", "", "ea_db" };
 
-    /*asyncEaDb.push(HandlersFactory::produce({
-      {"from_id", 1},
-      {"command", "get_user_events"},
-      {"user_id", 1}
-    }));*/
-
-    /*asyncEaDb.push([](EaDb* eaDb) {
-      auto res = eaDb->getUserEvents(1);
-      std::cout << 1 << " (get_user_event) -> ";
-      for (auto& e : res) {
-        std::cout << e << " ";
-      }
-      std::cout << std::endl;
-    });
-
-    asyncEaDb.push([](EaDb*) { std::cout << "fuck!\n"; });*/
-
-    asyncEaDb.push([](EaDb* eaDb) { std::cout << eaDb->addKudagoEvent(30032001); });
+    asyncEaDb.push(HandlersFactory::produce({
+      {"from_id", 1488},
+      {"command", "add_kudago_event"},
+      {"kudago_id", 30032001}
+    }));
 
     return EXIT_SUCCESS;
   } catch (const std::exception& e) {
