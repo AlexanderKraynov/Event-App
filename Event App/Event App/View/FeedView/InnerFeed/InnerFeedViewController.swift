@@ -13,12 +13,22 @@ import XLPagerTabStrip
 class InnerFeedViewController: UIViewController, IndicatorInfoProvider, UICollectionViewDataSource {
     private var dateButtonsNames = ["Сегодня", "Завтра"]
     private var typeButtonsNames = ["Все", "Кино", "Выставки", "Концерты", "Name"]
+    var filteredEvents = [Event]()
+    var filteredPlaces = [Place?]()
+    // MARK: - TMP
+    let tmpCity = City.spb
+    //swiftlint:disable:next implicitly_unwrapped_optional
+    var presenter: InnerFeedViewPresenter!
+
     @IBOutlet private var typeButtons: UICollectionView!
     @IBOutlet private var dateButtons: UICollectionView!
     @IBOutlet private var eventTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // MARK: - TMP
+        presenter = InnerFeedViewPresenter(view: self)
+
         eventTableView.dataSource = self
         eventTableView.delegate = self
         eventTableView.register(cellType: EventView.self)
@@ -30,9 +40,20 @@ class InnerFeedViewController: UIViewController, IndicatorInfoProvider, UICollec
         dateButtons.dataSource = self
         dateButtons.delegate = self
         dateButtons.isScrollEnabled = false
+        // MARK: - TMP
+        presenter.getEvents(city: tmpCity) {
+            DispatchQueue.main.async {
+                self.eventTableView.reloadData()
+            }
+        }
     }
+
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
       IndicatorInfo(title: "Лента")
+    }
+
+    func reloadTableView() {
+        eventTableView.reloadData()
     }
 }
 extension InnerFeedViewController: StoryboardBased {
@@ -67,10 +88,27 @@ extension InnerFeedViewController: UICollectionViewDelegateFlowLayout {
 
 extension InnerFeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         10
+        filteredEvents.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: EventView.self)
-         return cell
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: EventView.self)
+        let placeIndex = filteredPlaces.first { place in
+            place?.id == filteredEvents[indexPath.row].place?.id
+        }
+        //swiftlint:disable:next redundant_nil_coalescing
+        cell.setup(event: filteredEvents[indexPath.row], place: placeIndex ?? nil)
+        return cell
+    }
+    func tableView( _ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = DetailsViewController.instantiate() as DetailsViewController
+        viewController.event = filteredEvents[indexPath.row]
+        let placeIndex = filteredPlaces.first {
+            $0?.id == filteredEvents[indexPath.row].place?.id
+        }
+        //swiftlint:disable:next redundant_nil_coalescing
+        viewController.place = placeIndex ?? nil
+
+        navigationController?.pushViewController(viewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

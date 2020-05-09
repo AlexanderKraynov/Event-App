@@ -6,6 +6,7 @@ target 'Event App' do
   pod 'XLPagerTabStrip', '~> 9.0'
   pod 'Reusable'
   pod 'Cosmos', '~> 21.0'
+  pod 'ExpandableLabel'
   target 'Event AppTests' do
     inherit! :search_paths
     # Pods for testing
