@@ -24,18 +24,36 @@ class InnerFeedViewPresenter {
     func getEvents(city: City, completion: @escaping OnActionCompletion) {
         facade.getEvents(city: city) { events, places in
             guard let events = events else {
+                completion()
                 return
             }
             self.events = events
             guard let places = places else {
+                completion()
                 return
             }
             self.places = places
-            self.view.filteredEvents = events
-            self.view.filteredPlaces = places
+            self.view.filteredEvents = self.events
+            self.view.filteredPlaces = self.places
             completion()
         }
     }
     func loadMore(completion: @escaping OnActionCompletion) {
+        facade.getMoreEvents { events, places in
+            guard let events = events else {
+                completion()
+                return
+            }
+            self.events.append(contentsOf: events)
+            guard let places = places else {
+                completion()
+                return
+            }
+            self.places.append(contentsOf: places)
+            self.view.filteredEvents = self.events
+            self.view.filteredPlaces = self.places
+            self.view.reloadTableView()
+            completion()
+        }
     }
 }

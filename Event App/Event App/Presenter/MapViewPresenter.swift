@@ -24,10 +24,12 @@ class MapViewPresenter {
     func getEvents(city: City, completion: @escaping OnActionCompletion) {
         facade.getEventsInArea(city: city, locationArea: view.getLocation()) { events, places in
             guard let events = events else {
+                completion()
                 return
             }
             self.events = events
             guard let places = places else {
+                completion()
                 return
             }
             self.places = places

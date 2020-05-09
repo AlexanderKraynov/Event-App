@@ -35,7 +35,7 @@ class EventServiceImpl: EventService {
         guard let url = URL(
             string: basePreviewURL +
             fullDescriptionExtensionURL +
-            (city.toCityQuery()) + "&lat=\(locationArea.lat)&lon=\(locationArea.lon)&radius=10000"
+            (city.toCityQuery()) + "&lat=\(locationArea.lat)&lon=\(locationArea.lon)&radius=10000" + "&page_size=40"
             ) else {
             completion(nil)
             return

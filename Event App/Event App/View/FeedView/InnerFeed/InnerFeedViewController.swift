@@ -42,9 +42,7 @@ class InnerFeedViewController: UIViewController, IndicatorInfoProvider, UICollec
         dateButtons.isScrollEnabled = false
         // MARK: - TMP
         presenter.getEvents(city: tmpCity) {
-            DispatchQueue.main.async {
-                self.eventTableView.reloadData()
-            }
+            self.reloadTableView()
         }
     }
 
@@ -53,7 +51,9 @@ class InnerFeedViewController: UIViewController, IndicatorInfoProvider, UICollec
     }
 
     func reloadTableView() {
-        eventTableView.reloadData()
+        DispatchQueue.main.async {
+            self.eventTableView.reloadData()
+        }
     }
 }
 extension InnerFeedViewController: StoryboardBased {
@@ -110,5 +110,22 @@ extension InnerFeedViewController: UITableViewDelegate, UITableViewDataSource {
 
         navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard indexPath.row >= filteredEvents.count - 1 else {
+            return
+        }
+        let spinner = UIActivityIndicatorView(style: .medium)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+
+        self.eventTableView.tableFooterView = spinner
+        spinner.hidesWhenStopped = true
+        presenter.loadMore {
+            DispatchQueue.main.async {
+                spinner.stopAnimating()
+            }
+        }
     }
 }
