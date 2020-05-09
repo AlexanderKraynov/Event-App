@@ -19,12 +19,12 @@ class EventView: UITableViewCell, NibReusable {
         self.locationLabel.text = ""
     }
 
-    func setup(event: Event, place: Place?) {
+    func setup(with event: Event) {
         titleLabel.text = event.title
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM hh:mm"
         dateFormatter.locale = Locale(identifier: "ru_RU")
         dateLabel.text = dateFormatter.string(from: event.dates[0].start)
-        self.locationLabel.text = place?.address ?? ""
+        self.locationLabel.text = event.place?.address ?? ""
     }
 }

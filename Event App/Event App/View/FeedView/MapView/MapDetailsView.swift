@@ -11,7 +11,6 @@ import UIKit
 
 class MapDetailsView: UIView {
     var event: Event?
-    var place: Place?
     @IBOutlet private var eventImage: UIImageView!
     @IBOutlet private var eventName: UILabel!
     @IBOutlet private var placeName: UILabel!
@@ -19,9 +18,8 @@ class MapDetailsView: UIView {
     @IBOutlet private var price: UILabel!
     @IBOutlet private var dates: UILabel!
 
-    func setup(event: Event, place: Place) {
+    func setup(with event: Event) {
         self.event = event
-        self.place = place
         eventImage.image = nil
         guard let imageURL = URL(string: event.images.first?.image ?? "") else {
             return
@@ -36,8 +34,8 @@ class MapDetailsView: UIView {
         }
         imageLoadTask.resume()
         eventName.text = event.title
-        placeName.text = place.title
-        placeAdress.text = place.address
+        placeName.text = event.place?.title ?? ""
+        placeAdress.text = event.place?.address ?? ""
         price.text = event.price
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM hh:mm"

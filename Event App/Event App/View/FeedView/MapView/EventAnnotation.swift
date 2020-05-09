@@ -12,7 +12,6 @@ import MapKit
 class EventAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var event: Event?
-    var place: Place?
     var title: String?
 
     init(coordinate: CLLocationCoordinate2D) {

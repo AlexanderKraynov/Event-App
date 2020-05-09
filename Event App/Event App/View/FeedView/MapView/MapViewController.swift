@@ -15,7 +15,6 @@ class MapViewController: UIViewController, IndicatorInfoProvider {
     let locationManager = CLLocationManager()
     let regionMeters: Double = 10000
     var filteredEvents = [Event]()
-    var filteredPlaces = [Place?]()
     //swiftlint:disable:next implicitly_unwrapped_optional
     var presenter: MapViewPresenter!
     @IBOutlet private var mapView: MKMapView!
@@ -31,13 +30,10 @@ class MapViewController: UIViewController, IndicatorInfoProvider {
         checkLocationServices()
         presenter = MapViewPresenter(view: self)
         presenter.getEvents(city: City.spb) {
-            for (i, event) in self.filteredEvents.enumerated() {
+            for event in self.filteredEvents {
                 let annotation = MKPointAnnotation()
                 annotation.title = event.title
-                let foundPlace = self.filteredPlaces.first { place in
-                    place?.id == self.filteredEvents[i].place?.id
-                }
-                guard let coordinates = foundPlace??.coords else {
+                guard let coordinates = event.place?.coords else {
                     continue
                 }
                 annotation.coordinate = CLLocationCoordinate2D(latitude: coordinates.lat, longitude: coordinates.lon)
@@ -113,7 +109,6 @@ class MapViewController: UIViewController, IndicatorInfoProvider {
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         let viewController = DetailsViewController.instantiate() as DetailsViewController
         viewController.event = detailsView.event
-        viewController.place = detailsView.place
         navigationController?.pushViewController(viewController, animated: true)
     }
 
@@ -142,18 +137,14 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         let prevAnnotations = mapView.annotations
         presenter.getEvents(city: City.spb) {
-            for (i, event) in self.filteredEvents.enumerated() {
-                let foundPlace = self.filteredPlaces.first { place in
-                    place?.id == self.filteredEvents[i].place?.id
-                }
-                guard let coordinates = foundPlace??.coords else {
+            for event in self.filteredEvents {
+                guard let coordinates = event.place?.coords else {
                     continue
                 }
                 let foundCoordinate = CLLocationCoordinate2D(latitude: coordinates.lat, longitude: coordinates.lon)
                 let annotation = EventAnnotation(coordinate: foundCoordinate)
                 annotation.title = event.title
                 annotation.event = event
-                annotation.place = foundPlace as? Place
                 self.mapView.addAnnotation(annotation)
             }
             DispatchQueue.main.async {
@@ -177,10 +168,10 @@ extension MapViewController: MKMapViewDelegate {
         guard let view = view.annotation as? EventAnnotation else {
             return
         }
-        guard let event = view.event, let place = view.place else {
+        guard let event = view.event else {
             return
         }
-        detailsView.setup(event: event, place: place)
+        detailsView.setup(with: event)
         detailsView.isHidden = false
         let location = view.coordinate
         DispatchQueue.main.async {

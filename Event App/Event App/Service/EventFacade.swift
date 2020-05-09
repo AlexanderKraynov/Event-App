@@ -9,7 +9,7 @@
 import Foundation
 
 protocol EventFacade {
-    typealias OnUpdateCompletion = ([Event]?, [Place?]?) -> Void
+    typealias OnUpdateCompletion = ([Event]?) -> Void
     func getEvents(city: City, completion: @escaping OnUpdateCompletion)
     func getEventsInArea(city: City, locationArea: LocationArea, completion: @escaping OnUpdateCompletion)
     func getMoreEvents(completion: @escaping OnUpdateCompletion)

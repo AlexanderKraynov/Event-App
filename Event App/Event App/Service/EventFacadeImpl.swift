@@ -17,59 +17,41 @@ class EventFacadeImpl: EventFacade {
     func getEvents(city: City, completion: @escaping OnUpdateCompletion) {
         service.getEvents(city: city) { events in
             guard let events = events else {
-                completion(nil, nil)
+                completion(nil)
                 return
             }
             var placeIds = [Int?]()
             for event in events {
                 placeIds.append(event.place?.id)
             }
-            self.service.getPlaces(with: placeIds) { places in
-                guard let places = places else {
-                    completion(events, nil)
-                    return
-                }
-                completion(events, places)
-            }
+            completion(events)
         }
     }
     func getEventsInArea(city: City, locationArea: LocationArea, completion: @escaping OnUpdateCompletion) {
         service.getEventsInArea(city: city, locationArea: locationArea) { events in
             guard let events = events else {
-                completion(nil, nil)
+                completion(nil)
                 return
             }
             var placeIds = [Int?]()
             for event in events {
                 placeIds.append(event.place?.id)
             }
-            self.service.getPlaces(with: placeIds) { places in
-                guard let places = places else {
-                    completion(events, nil)
-                    return
-                }
-                completion(events, places)
-            }
+            completion(events)
         }
     }
 
     func getMoreEvents(completion: @escaping OnUpdateCompletion) {
         service.getMoreEvents { events in
             guard let events = events else {
-                completion(nil, nil)
+                completion(nil)
                 return
             }
             var placeIds = [Int?]()
             for event in events {
                 placeIds.append(event.place?.id)
             }
-            self.service.getPlaces(with: placeIds) { places in
-                guard let places = places else {
-                    completion(events, nil)
-                    return
-                }
-                completion(events, places)
-            }
+            completion(events)
         }
     }
 

@@ -14,7 +14,6 @@ class InnerFeedViewController: UIViewController, IndicatorInfoProvider, UICollec
     private var dateButtonsNames = ["Сегодня", "Завтра"]
     private var typeButtonsNames = ["Все", "Кино", "Выставки", "Концерты", "Name"]
     var filteredEvents = [Event]()
-    var filteredPlaces = [Place?]()
     // MARK: - TMP
     let tmpCity = City.spb
     //swiftlint:disable:next implicitly_unwrapped_optional
@@ -92,22 +91,12 @@ extension InnerFeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: EventView.self)
-        let placeIndex = filteredPlaces.first { place in
-            place?.id == filteredEvents[indexPath.row].place?.id
-        }
-        //swiftlint:disable:next redundant_nil_coalescing
-        cell.setup(event: filteredEvents[indexPath.row], place: placeIndex ?? nil)
+        cell.setup(with: filteredEvents[indexPath.row])
         return cell
     }
     func tableView( _ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = DetailsViewController.instantiate() as DetailsViewController
         viewController.event = filteredEvents[indexPath.row]
-        let placeIndex = filteredPlaces.first {
-            $0?.id == filteredEvents[indexPath.row].place?.id
-        }
-        //swiftlint:disable:next redundant_nil_coalescing
-        viewController.place = placeIndex ?? nil
-
         navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }

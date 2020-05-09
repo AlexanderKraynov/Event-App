@@ -9,15 +9,11 @@
 import Foundation
 
 struct Event: Decodable {
-    class PlaceID: Decodable {
-        let id: Int
-    }
-
     let id: Int
     let title: String
     let slug: String
     let dates: [KudagoDate]
-    let place: PlaceID?
+    let place: Place?
 // MARK: - Event details
     var location: Location?
     var publicationDate: Date?

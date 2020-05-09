@@ -11,7 +11,6 @@ import UIKit
 
 class DetailsViewController: UIViewController, StoryboardBased {
     var event: Event?
-    var place: Place?
 
     @IBOutlet private var eventImageView: UIImageView!
     @IBOutlet private var eventNameLabel: UILabel!
@@ -38,7 +37,7 @@ class DetailsViewController: UIViewController, StoryboardBased {
         }
         imageLoadTask.resume()
         eventNameLabel.text = event.title
-        eventPlaceLabel.text = place?.title ?? ""
+        eventPlaceLabel.text = event.place?.title ?? ""
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM hh:mm"
         dateFormatter.locale = Locale(identifier: "ru_RU")
@@ -47,6 +46,6 @@ class DetailsViewController: UIViewController, StoryboardBased {
         }
         eventDatesLabel.text = datesMap.joined(separator: " ")
         eventDescriptionLabel.text = event.description
-        eventAdressLabel.text = place?.address ?? "Не указано"
+        eventAdressLabel.text = event.place?.address ?? "Не указано"
     }
 }

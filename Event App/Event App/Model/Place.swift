@@ -18,6 +18,5 @@ struct Place: Decodable {
     let subway: String
     let isClosed: Bool
     let location: String
-    let hasParkingLot: Bool
     let coords: LocationArea
 }

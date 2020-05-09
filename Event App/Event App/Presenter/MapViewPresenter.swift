@@ -14,7 +14,6 @@ class MapViewPresenter {
     var view: MapViewController
     var facade: EventFacade
     var events = [Event]()
-    var places = [Place?]()
 
     init (view: MapViewController, facade: EventFacade = EventFacadeImpl(service: EventServiceImpl())) {
         self.facade = facade
@@ -22,19 +21,13 @@ class MapViewPresenter {
     }
 
     func getEvents(city: City, completion: @escaping OnActionCompletion) {
-        facade.getEventsInArea(city: city, locationArea: view.getLocation()) { events, places in
+        facade.getEventsInArea(city: city, locationArea: view.getLocation()) { events in
             guard let events = events else {
                 completion()
                 return
             }
             self.events = events
-            guard let places = places else {
-                completion()
-                return
-            }
-            self.places = places
             self.view.filteredEvents = events
-            self.view.filteredPlaces = places
             completion()
         }
     }
