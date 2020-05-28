@@ -1,11 +1,4 @@
 //swiftlint:disable all
-//  Util.swift
-//  Event App
-//
-//  Created by Admin on 31.03.2020.
-//  Copyright © 2020 eventapp. All rights reserved.
-//
-
 import UIKit
 
 extension String {

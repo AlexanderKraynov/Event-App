@@ -8,6 +8,6 @@
 
 import Foundation
 
-class Location: Decodable {
+struct Location: Decodable, Equatable {
     let slug: String
 }

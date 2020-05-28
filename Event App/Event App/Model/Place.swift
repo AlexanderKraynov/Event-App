@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Place: Decodable {
+struct Place: Decodable, Equatable {
     let id: Int
     let title: String
     let slug: String

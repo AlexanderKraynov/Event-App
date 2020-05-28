@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="eiu-jc-p1h">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lIJ-1m-jt5">
@@ -46,38 +46,12 @@
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wEk-yU-gvm">
-                                            <rect key="frame" x="0.0" y="68" width="434" height="60"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="AHI-bt-7YF"/>
-                                            </constraints>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eoq-Df-dzN">
-                                                <size key="itemSize" width="50" height="50"/>
-                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                            </collectionViewFlowLayout>
-                                            <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PrototypeCollectionViewCell" id="TLY-pk-C6c">
-                                                    <rect key="frame" x="20" y="0.0" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9sj-H3-Jqc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                    </collectionViewCellContentView>
-                                                </collectionViewCell>
-                                            </cells>
-                                        </collectionView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
-                                        <constraint firstItem="lIJ-1m-jt5" firstAttribute="leading" secondItem="wEk-yU-gvm" secondAttribute="leading" id="1jJ-Nn-hPd"/>
                                         <constraint firstItem="lIJ-1m-jt5" firstAttribute="leading" secondItem="eiu-jc-p1h" secondAttribute="leading" id="DaB-Rx-Lm9"/>
                                         <constraint firstItem="lIJ-1m-jt5" firstAttribute="top" secondItem="eiu-jc-p1h" secondAttribute="top" id="EIa-HF-lQk"/>
-                                        <constraint firstItem="lIJ-1m-jt5" firstAttribute="trailing" secondItem="wEk-yU-gvm" secondAttribute="trailing" id="N9w-Ff-sJ5"/>
                                         <constraint firstAttribute="trailing" secondItem="lIJ-1m-jt5" secondAttribute="trailing" constant="-20" id="oJK-oo-ak6"/>
-                                        <constraint firstItem="wEk-yU-gvm" firstAttribute="top" secondItem="lIJ-1m-jt5" secondAttribute="bottom" constant="8" id="pOZ-lJ-RC1"/>
                                     </constraints>
                                 </view>
                             </tableView>
@@ -92,7 +66,6 @@
                         <viewLayoutGuide key="safeArea" id="tWe-Wc-u7y"/>
                     </view>
                     <connections>
-                        <outlet property="dateButtons" destination="wEk-yU-gvm" id="BkT-al-iiU"/>
                         <outlet property="eventTableView" destination="lDc-jR-vwq" id="f7O-dg-toa"/>
                         <outlet property="typeButtons" destination="lIJ-1m-jt5" id="2jI-Jg-eWX"/>
                     </connections>

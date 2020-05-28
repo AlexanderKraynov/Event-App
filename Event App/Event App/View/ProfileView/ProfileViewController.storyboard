@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UfZ-gk-O5q">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="3ml-ru-GXx">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="UfZ-gk-O5q" customClass="ProfileViewController" customModule="Event_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DFC-D2-cIj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vq-Gy-BP3">
+                                <rect key="frame" x="0.0" y="114" width="414" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Город для поиска" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ss9-w3-bw8">
+                                <rect key="frame" x="107" y="64" width="200" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2vq-Gy-BP3" firstAttribute="leading" secondItem="W9J-EL-DR4" secondAttribute="leading" id="BsS-V4-D4m"/>
+                            <constraint firstItem="2vq-Gy-BP3" firstAttribute="trailing" secondItem="W9J-EL-DR4" secondAttribute="trailing" id="WLt-je-fxb"/>
+                            <constraint firstItem="Ss9-w3-bw8" firstAttribute="centerX" secondItem="DFC-D2-cIj" secondAttribute="centerX" id="dEh-F1-cUX"/>
+                            <constraint firstItem="2vq-Gy-BP3" firstAttribute="top" secondItem="Ss9-w3-bw8" secondAttribute="bottom" constant="20" id="kJz-rA-7Cz"/>
+                            <constraint firstItem="Ss9-w3-bw8" firstAttribute="top" secondItem="W9J-EL-DR4" secondAttribute="top" constant="20" id="oYB-aR-AD3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="W9J-EL-DR4"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Component 5" id="kVu-BX-YON"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cityPicker" destination="2vq-Gy-BP3" id="Awf-EQ-6Ng"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fsE-he-OR4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="62" y="110"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Component 5" width="20.666666030883789" height="24"/>
+    </resources>
+</document>

@@ -10,5 +10,5 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var viewsToReload = [UIViewController]()
 }

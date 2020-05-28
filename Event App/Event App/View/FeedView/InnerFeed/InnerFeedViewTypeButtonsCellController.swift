@@ -11,11 +11,14 @@ import UIKit
 final class InnerFeedViewTypeButtonsCellController: UICollectionViewCell, NibReusable {
     @IBOutlet private var button: UIButton!
 
-    func setup(text: String) {
+    func setup(text: String, action: @escaping () -> Void) {
         button.layer.cornerRadius = button.frame.height / 2
         button.backgroundColor = UIColor.purple
         button.clipsToBounds = true
         button.tintColor = UIColor.white
         button.setTitle(text, for: .normal)
+        button.addAction {
+            action()
+        }
     }
 }

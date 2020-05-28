@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Image: Decodable {
-    struct Source: Decodable {
+struct Image: Decodable, Equatable {
+    struct Source: Decodable, Equatable {
         let name: String
         let link: String
     }

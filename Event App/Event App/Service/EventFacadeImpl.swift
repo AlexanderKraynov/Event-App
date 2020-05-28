@@ -55,6 +55,20 @@ class EventFacadeImpl: EventFacade {
         }
     }
 
+    func getEventsWithCategory(city: City, category: EventCategory, completion: @escaping OnUpdateCompletion) {
+        service.getEventsWithTag(city: city, tag: category) { events in
+            guard let events = events else {
+                completion(nil)
+                return
+            }
+            var placeIds = [Int?]()
+            for event in events {
+                placeIds.append(event.place?.id)
+            }
+            completion(events)
+        }
+    }
+
     func addEvent(event: Event, for place: Place) {
         service.addEvent(event: event, for: place)
     }

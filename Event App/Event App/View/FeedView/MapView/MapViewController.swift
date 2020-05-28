@@ -15,8 +15,11 @@ class MapViewController: UIViewController, IndicatorInfoProvider {
     let locationManager = CLLocationManager()
     let regionMeters: Double = 10000
     var filteredEvents = [Event]()
-    //swiftlint:disable:next implicitly_unwrapped_optional
+    //swiftlint:disable implicitly_unwrapped_optional
     var presenter: MapViewPresenter!
+    var searchBar: UISearchBar!
+    var userCity = City.msk
+    //swiftlint:enable implicitly_unwrapped_optional
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet private var detailsView: MapDetailsView!
 
@@ -25,11 +28,19 @@ class MapViewController: UIViewController, IndicatorInfoProvider {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(triggerTouchAction))
         mapView.addGestureRecognizer(gestureRecognizer)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        //swiftlint:disable force_cast
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        userCity = City.allCases[UserDefaults.standard.object(forKey: "USER_CITY") as! Int]
+        if !delegate.viewsToReload.contains(self) {
+            delegate.viewsToReload.append(self)
+        }
+        //swiftlint:enable force_cast
         checkLocationServices()
         presenter = MapViewPresenter(view: self)
-        presenter.getEvents(city: City.spb) {
+        presenter.getEvents(city: userCity) {
             for event in self.filteredEvents {
                 let annotation = MKPointAnnotation()
                 annotation.title = event.title
@@ -115,6 +126,8 @@ class MapViewController: UIViewController, IndicatorInfoProvider {
     @objc func triggerTouchAction(gestureReconizer: UITapGestureRecognizer) {
         detailsView.isHidden = true
     }
+    @objc func didTapPin(gestureRecognizer: UITapGestureRecognizer) {
+    }
 }
 extension MapViewController: StoryboardBased {
 }
@@ -135,8 +148,11 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        if !(searchBar.text?.isEmpty ?? true) {
+            return
+        }
         let prevAnnotations = mapView.annotations
-        presenter.getEvents(city: City.spb) {
+        presenter.getEvents(city: userCity) {
             for event in self.filteredEvents {
                 guard let coordinates = event.place?.coords else {
                     continue
@@ -152,6 +168,7 @@ extension MapViewController: MKMapViewDelegate {
             }
         }
     }
+
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
@@ -162,8 +179,11 @@ extension MapViewController: MKMapViewDelegate {
         }
         annotationView?.canShowCallout = true
         annotationView?.image = #imageLiteral(resourceName: "Group 6.1")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.didTapPin))
+        annotationView?.addGestureRecognizer(tapGesture)
         return annotationView
     }
+
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let view = view.annotation as? EventAnnotation else {
             return
@@ -177,6 +197,37 @@ extension MapViewController: MKMapViewDelegate {
         DispatchQueue.main.async {
             let region = MKCoordinateRegion(center: location, latitudinalMeters: self.regionMeters / 5, longitudinalMeters: self.regionMeters / 5)
             mapView.setRegion(region, animated: true)
+        }
+    }
+
+    func searchBarTextChanged(searchText: String) {
+        let buf = filteredEvents
+        if presenter == nil {
+            return
+        }
+        filteredEvents = presenter.filter(with: searchText)
+        let changes = presenter.getDiff(old: filteredEvents, new: buf)
+        if !changes.0.isEmpty {
+            let annotationsToRemove = mapView.annotations.filter {
+                guard let annotation = $0 as? EventAnnotation else {
+                    return false
+                }
+                guard let event = annotation.event else {
+                    return false
+                }
+                return changes.0.contains(event)
+            }
+            mapView.removeAnnotations(annotationsToRemove)
+        }
+        if !changes.1.isEmpty {
+            for change in changes.1 {
+                guard let coordinates = change.place?.coords else {
+                    continue
+                }
+                let annotation = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: coordinates.lat, longitude: coordinates.lon))
+                annotation.event = change
+                mapView.addAnnotation(annotation)
+            }
         }
     }
 }

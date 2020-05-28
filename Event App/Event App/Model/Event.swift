@@ -6,9 +6,13 @@
 //  Copyright © 2020 eventapp. All rights reserved.
 //
 
+import DeepDiff
 import Foundation
 
-struct Event: Decodable {
+struct Event: Decodable, DiffAware, Equatable {
+    typealias DiffId = Int
+
+    var diffId: DiffId { id }
     let id: Int
     let title: String
     let slug: String
@@ -22,4 +26,8 @@ struct Event: Decodable {
     var price: String?
     var images: [Image] = []
     var tags: [String] = []
+
+    static func compareContent(_ lhs: Event, _ rhs: Event) -> Bool {
+        lhs == rhs
+    }
 }

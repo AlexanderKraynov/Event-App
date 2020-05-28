@@ -9,7 +9,9 @@
 import Foundation
 
 class EventServiceImpl: EventService {
-    private let basePreviewURL =  "https://kudago.com/public-api/v1.4/events/?expand=place&text_format=text&fields=id,title,slug,dates,place"
+    private let basePreviewURL =  """
+    https://kudago.com/public-api/v1.4/events/?expand=place&text_format=text&order_by=-publication_date,-rank&fields=id,title,slug,dates,place
+    """
     private let fullDescriptionExtensionURL = ",publication_date,description,categories,price,images,tags"
     private var nextPage: URL?
 
@@ -34,6 +36,18 @@ class EventServiceImpl: EventService {
             string: basePreviewURL +
             fullDescriptionExtensionURL +
             (city.toCityQuery()) + "&lat=\(locationArea.lat)&lon=\(locationArea.lon)&radius=10000" + "&page_size=40"
+            ) else {
+            completion(nil)
+            return
+        }
+        getEvents(url: url, completion: completion)
+    }
+
+    func getEventsWithTag(city: City, tag: EventCategory, completion: @escaping EventCompletion) {
+        guard let url = URL(
+            string: basePreviewURL +
+            fullDescriptionExtensionURL +
+                (city.toCityQuery()) + tag.toCategoryQuery()
             ) else {
             completion(nil)
             return

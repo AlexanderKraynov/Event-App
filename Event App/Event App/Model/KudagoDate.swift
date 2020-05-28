@@ -8,7 +8,11 @@
 
 import Foundation
 
-class KudagoDate: Decodable {
+class KudagoDate: Decodable, Equatable {
     let start: Date
     let end: Date
+
+    static func == (lhs: KudagoDate, rhs: KudagoDate) -> Bool {
+        lhs.end == rhs.end && lhs.start == rhs.start
+    }
 }

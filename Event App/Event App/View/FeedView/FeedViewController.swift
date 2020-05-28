@@ -12,7 +12,7 @@ import XLPagerTabStrip
 class FeedViewController: ButtonBarPagerTabStripViewController {
     private let placeholderWidth = 50
     private var offset = UIOffset()
-
+    private var controllers = [UIViewController]()
     @IBOutlet private var searchBar: UISearchBar!
 
     override func viewDidLoad() {
@@ -42,23 +42,37 @@ class FeedViewController: ButtonBarPagerTabStripViewController {
     }
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        [InnerFeedViewController.instantiate(), MapViewController.instantiate()]
+        let innerFeed = InnerFeedViewController.instantiate()
+        innerFeed.searchBar = searchBar
+        let mapView = MapViewController.instantiate()
+        mapView.searchBar = searchBar
+        controllers = [innerFeed, mapView]
+        return controllers
     }
 }
 
 extension FeedViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-           let noOffset = UIOffset(horizontal: 0, vertical: 0)
-           searchBar.setPositionAdjustment(noOffset, for: .search)
+        let noOffset = UIOffset(horizontal: 0, vertical: 0)
+        searchBar.setPositionAdjustment(noOffset, for: .search)
+        return true
+    }
 
-           return true
-       }
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.setPositionAdjustment(offset, for: .search)
+        return true
+    }
 
-       func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-           searchBar.setPositionAdjustment(offset, for: .search)
-
-           return true
-       }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let innerFeed = controllers[0] as? InnerFeedViewController else {
+            return
+        }
+        innerFeed.searchBarTextChanged(searchText: searchText)
+        guard let mapView = controllers[1] as? MapViewController else {
+            return
+        }
+        mapView.searchBarTextChanged(searchText: searchText)
+    }
 }
 
 extension FeedViewController {

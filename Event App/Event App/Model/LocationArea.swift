@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LocationArea: Decodable {
+struct LocationArea: Decodable, Equatable {
     let lat: Double
     let lon: Double
 }

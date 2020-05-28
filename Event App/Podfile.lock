@@ -1,5 +1,6 @@
 PODS:
   - Cosmos (21.0.0)
+  - DeepDiff (2.3.1)
   - ExpandableLabel (0.5.2)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
@@ -11,6 +12,7 @@ PODS:
 
 DEPENDENCIES:
   - Cosmos (~> 21.0)
+  - DeepDiff
   - ExpandableLabel
   - Reusable
   - SwiftLint
@@ -19,6 +21,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Cosmos
+    - DeepDiff
     - ExpandableLabel
     - Reusable
     - SwiftLint
@@ -26,11 +29,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
+  DeepDiff: e5ae6c50d0321568e4508cec5930b9f10bb293fc
   ExpandableLabel: c2fab6d27860c572d67134b30522a5917746171d
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: ab4ad97761fe5ecf733ada857a1e43b93e6855dd
+PODFILE CHECKSUM: 66bd232ff9b6ffbd1d22424bfa235f4c1dea6095
 
 COCOAPODS: 1.9.1

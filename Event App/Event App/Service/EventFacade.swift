@@ -13,5 +13,6 @@ protocol EventFacade {
     func getEvents(city: City, completion: @escaping OnUpdateCompletion)
     func getEventsInArea(city: City, locationArea: LocationArea, completion: @escaping OnUpdateCompletion)
     func getMoreEvents(completion: @escaping OnUpdateCompletion)
+    func getEventsWithCategory(city: City, category: EventCategory, completion: @escaping OnUpdateCompletion)
     func addEvent(event: Event, for place: Place)
 }

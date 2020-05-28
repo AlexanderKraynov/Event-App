@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		280EBC0D245EDD7D00C51E77 /* LocationArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280EBC0C245EDD7D00C51E77 /* LocationArea.swift */; };
 		280EBC0F245EE92600C51E77 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280EBC0E245EE92600C51E77 /* MapViewPresenter.swift */; };
+		282189E2247FBA67004DD483 /* EventCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282189E1247FBA67004DD483 /* EventCategory.swift */; };
+		289A9E53247FF0B300930672 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A9E52247FF0B300930672 /* ProfileViewController.swift */; };
+		289A9E55247FF0D500930672 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289A9E54247FF0D500930672 /* ProfileViewController.storyboard */; };
 		28A22C8D24558DB30042E665 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A22C8C24558DB30042E665 /* Place.swift */; };
 		28AD7CC22460455300E39EFA /* MapDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AD7CC12460455300E39EFA /* MapDetailsView.swift */; };
 		28AD7CC4246049FE00E39EFA /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AD7CC3246049FE00E39EFA /* EventAnnotation.swift */; };
+		28BA4D38247EE698002DE2EF /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BA4D37247EE698002DE2EF /* UIControl.swift */; };
 		28D280E32466C63000AEF954 /* DetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D280E22466C63000AEF954 /* DetailsViewController.storyboard */; };
 		28D280E52466D1E300AEF954 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D280E42466D1E300AEF954 /* DetailsViewController.swift */; };
 		28E627A424546CD4003F4966 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E627A324546CD4003F4966 /* Event.swift */; };
@@ -73,9 +77,13 @@
 		14E6CF37A4FE38352AE43973 /* Pods-Event AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event AppTests.release.xcconfig"; path = "Target Support Files/Pods-Event AppTests/Pods-Event AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		280EBC0C245EDD7D00C51E77 /* LocationArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationArea.swift; sourceTree = "<group>"; };
 		280EBC0E245EE92600C51E77 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
+		282189E1247FBA67004DD483 /* EventCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCategory.swift; sourceTree = "<group>"; };
+		289A9E52247FF0B300930672 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		289A9E54247FF0D500930672 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		28A22C8C24558DB30042E665 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		28AD7CC12460455300E39EFA /* MapDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailsView.swift; sourceTree = "<group>"; };
 		28AD7CC3246049FE00E39EFA /* EventAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
+		28BA4D37247EE698002DE2EF /* UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControl.swift; sourceTree = "<group>"; };
 		28D280E22466C63000AEF954 /* DetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsViewController.storyboard; sourceTree = "<group>"; };
 		28D280E42466D1E300AEF954 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		28E627A324546CD4003F4966 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -165,6 +173,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		289A9E51247FF09B00930672 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				289A9E52247FF0B300930672 /* ProfileViewController.swift */,
+				289A9E54247FF0D500930672 /* ProfileViewController.storyboard */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
 		28AD7CBA246015CF00E39EFA /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +189,15 @@
 				84F14D22243771D600D4EF29 /* EventView.swift */,
 			);
 			path = Reusables;
+			sourceTree = "<group>";
+		};
+		28BA4D39247EE6A3002DE2EF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				84FACFF72433AF1E008EA231 /* String.swift */,
+				28BA4D37247EE698002DE2EF /* UIControl.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		28D280E12466C60D00AEF954 /* DetailsView */ = {
@@ -205,6 +231,7 @@
 				28A22C8C24558DB30042E665 /* Place.swift */,
 				28FCAF75245AE89E0014B81E /* City.swift */,
 				280EBC0C245EDD7D00C51E77 /* LocationArea.swift */,
+				282189E1247FBA67004DD483 /* EventCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +305,7 @@
 		84E7B6D4242D2DF000B542E7 /* Event App */ = {
 			isa = PBXGroup;
 			children = (
+				28BA4D39247EE6A3002DE2EF /* Util */,
 				28FCAF85245B07310014B81E /* Presenter */,
 				28E627A224546CC6003F4966 /* Model */,
 				28E627A124546A45003F4966 /* Service */,
@@ -288,7 +316,6 @@
 				84E7B6E0242D2DF500B542E7 /* Assets.xcassets */,
 				84E7B6E2242D2DF500B542E7 /* LaunchScreen.storyboard */,
 				84E7B6E5242D2DF500B542E7 /* Info.plist */,
-				84FACFF72433AF1E008EA231 /* String.swift */,
 			);
 			path = "Event App";
 			sourceTree = "<group>";
@@ -314,6 +341,7 @@
 		84F831102430D60E0042F317 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				289A9E51247FF09B00930672 /* ProfileView */,
 				84E7B709242D391000B542E7 /* Main.storyboard */,
 				84F831122430D63E0042F317 /* PopularView */,
 				84F831112430D61D0042F317 /* FeedView */,
@@ -464,6 +492,7 @@
 			files = (
 				84F8310B2430B6720042F317 /* InnerFeedViewController.storyboard in Resources */,
 				84E7B708242D339000B542E7 /* PopularViewController.storyboard in Resources */,
+				289A9E55247FF0D500930672 /* ProfileViewController.storyboard in Resources */,
 				84FACFF62433A8BC008EA231 /* Montserrat.ttf in Resources */,
 				84FACFEF243386D3008EA231 /* InnerFeedViewTypeButtonsCellController.xib in Resources */,
 				84E7B70A242D391000B542E7 /* Main.storyboard in Resources */,
@@ -626,9 +655,11 @@
 				84FACFF82433AF1E008EA231 /* String.swift in Sources */,
 				280EBC0D245EDD7D00C51E77 /* LocationArea.swift in Sources */,
 				84F831082430B5BD0042F317 /* MapViewController.swift in Sources */,
+				282189E2247FBA67004DD483 /* EventCategory.swift in Sources */,
 				28FCAF89245B08C60014B81E /* EventFacade.swift in Sources */,
 				28FCAF87245B076F0014B81E /* InnerFeedViewPresenter.swift in Sources */,
 				84F8310D2430BEA20042F317 /* InnerFeedViewController.swift in Sources */,
+				289A9E53247FF0B300930672 /* ProfileViewController.swift in Sources */,
 				28E627B024548DB5003F4966 /* Location.swift in Sources */,
 				28AD7CC4246049FE00E39EFA /* EventAnnotation.swift in Sources */,
 				84E7B6DA242D2DF000B542E7 /* FeedViewController.swift in Sources */,
@@ -639,6 +670,7 @@
 				84F831042430AF6F0042F317 /* FeedViewButtonBar.swift in Sources */,
 				28E627A824546FC5003F4966 /* EventServiceImpl.swift in Sources */,
 				280EBC0F245EE92600C51E77 /* MapViewPresenter.swift in Sources */,
+				28BA4D38247EE698002DE2EF /* UIControl.swift in Sources */,
 				84E7B6D8242D2DF000B542E7 /* SceneDelegate.swift in Sources */,
 				28FCAF8B245B09650014B81E /* EventFacadeImpl.swift in Sources */,
 				28E627A424546CD4003F4966 /* Event.swift in Sources */,

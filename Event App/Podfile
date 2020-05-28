@@ -7,6 +7,7 @@ target 'Event App' do
   pod 'Reusable'
   pod 'Cosmos', '~> 21.0'
   pod 'ExpandableLabel'
+  pod 'DeepDiff'
   target 'Event AppTests' do
     inherit! :search_paths
     # Pods for testing

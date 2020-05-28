@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-Event App-Event AppUITests/Pods-Event App-Event AppUITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework
+${BUILT_PRODUCTS_DIR}/DeepDiff/DeepDiff.framework
 ${BUILT_PRODUCTS_DIR}/ExpandableLabel/ExpandableLabel.framework
 ${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework
 ${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework
