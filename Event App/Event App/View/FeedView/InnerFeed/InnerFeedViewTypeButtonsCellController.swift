@@ -13,7 +13,7 @@ final class InnerFeedViewTypeButtonsCellController: UICollectionViewCell, NibReu
 
     func setup(text: String, action: @escaping () -> Void) {
         button.layer.cornerRadius = button.frame.height / 2
-        button.backgroundColor = UIColor.purple
+        button.backgroundColor = .darkGray
         button.clipsToBounds = true
         button.tintColor = UIColor.white
         button.setTitle(text, for: .normal)
