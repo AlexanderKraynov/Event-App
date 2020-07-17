@@ -2,20 +2,30 @@ PODS:
   - Cosmos (21.0.0)
   - DeepDiff (2.3.1)
   - ExpandableLabel (0.5.2)
+  - Kingfisher (4.10.1)
+  - Realm (5.0.3):
+    - Realm/Headers (= 5.0.3)
+  - Realm/Headers (5.0.3)
+  - RealmSwift (5.0.3):
+    - Realm (= 5.0.3)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
   - Reusable/Storyboard (4.1.1)
   - Reusable/View (4.1.1)
   - SwiftLint (0.39.1)
+  - THLabel (1.4.10)
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - Cosmos (~> 21.0)
   - DeepDiff
   - ExpandableLabel
+  - Kingfisher
+  - RealmSwift
   - Reusable
   - SwiftLint
+  - THLabel
   - XLPagerTabStrip (~> 9.0)
 
 SPEC REPOS:
@@ -23,18 +33,26 @@ SPEC REPOS:
     - Cosmos
     - DeepDiff
     - ExpandableLabel
+    - Kingfisher
+    - Realm
+    - RealmSwift
     - Reusable
     - SwiftLint
+    - THLabel
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   DeepDiff: e5ae6c50d0321568e4508cec5930b9f10bb293fc
   ExpandableLabel: c2fab6d27860c572d67134b30522a5917746171d
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Realm: bfca1699b61b0b17c3a69ae0e648314eae91fbdb
+  RealmSwift: 493c9f089cd3893b3959007973c0e4f640906ba0
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
+  THLabel: 3fc93a0f01f74e4eec7574df2819e576d57150b3
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 66bd232ff9b6ffbd1d22424bfa235f4c1dea6095
+PODFILE CHECKSUM: 760c454e108eb0958d46f6ffcfe42ca9b088e069
 
 COCOAPODS: 1.9.1

@@ -22,6 +22,7 @@ class FeedViewController: ButtonBarPagerTabStripViewController {
     }
 
     func setUpButtonBar() {
+        searchBar.showsBookmarkButton = false
         settings.style.buttonBarItemBackgroundColor = UIColor.white.withAlphaComponent(0)
         settings.style.buttonBarItemTitleColor = UIColor.black
         settings.style.buttonBarItemLeftRightMargin = 8
@@ -30,7 +31,6 @@ class FeedViewController: ButtonBarPagerTabStripViewController {
 
     func setUpSearchBar() {
         dismissKeyboardSetup()
-        searchBar.setImage(#imageLiteral(resourceName: "Component 18"), for: .bookmark, state: UIControl.State.normal)
         searchBar.delegate = self
         UISearchBar.appearance().setImage(#imageLiteral(resourceName: "Component 3"), for: UISearchBar.Icon.search, state: UIControl.State.normal)
         let textFieldInsideUISearchBar = searchBar.value(forKey: "searchField") as? UITextField

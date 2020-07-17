@@ -10,12 +10,17 @@
 		280EBC0D245EDD7D00C51E77 /* LocationArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280EBC0C245EDD7D00C51E77 /* LocationArea.swift */; };
 		280EBC0F245EE92600C51E77 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280EBC0E245EE92600C51E77 /* MapViewPresenter.swift */; };
 		282189E2247FBA67004DD483 /* EventCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282189E1247FBA67004DD483 /* EventCategory.swift */; };
+		2823D52F24BCE431003B7A00 /* EventRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823D52E24BCE431003B7A00 /* EventRealm.swift */; };
+		2823D53124BCED82003B7A00 /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823D53024BCED82003B7A00 /* EventRepository.swift */; };
+		2823D53324BCEE92003B7A00 /* EventRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823D53224BCEE91003B7A00 /* EventRepositoryImpl.swift */; };
+		2823D53524BCF1A4003B7A00 /* RealmImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823D53424BCF1A4003B7A00 /* RealmImage.swift */; };
 		289A9E53247FF0B300930672 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A9E52247FF0B300930672 /* ProfileViewController.swift */; };
 		289A9E55247FF0D500930672 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289A9E54247FF0D500930672 /* ProfileViewController.storyboard */; };
 		28A22C8D24558DB30042E665 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A22C8C24558DB30042E665 /* Place.swift */; };
 		28AD7CC22460455300E39EFA /* MapDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AD7CC12460455300E39EFA /* MapDetailsView.swift */; };
 		28AD7CC4246049FE00E39EFA /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AD7CC3246049FE00E39EFA /* EventAnnotation.swift */; };
 		28BA4D38247EE698002DE2EF /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BA4D37247EE698002DE2EF /* UIControl.swift */; };
+		28CF5BD9248934DB00465EA8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CF5BD8248934DB00465EA8 /* UIColor.swift */; };
 		28D280E32466C63000AEF954 /* DetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D280E22466C63000AEF954 /* DetailsViewController.storyboard */; };
 		28D280E52466D1E300AEF954 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D280E42466D1E300AEF954 /* DetailsViewController.swift */; };
 		28E627A424546CD4003F4966 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E627A324546CD4003F4966 /* Event.swift */; };
@@ -78,12 +83,17 @@
 		280EBC0C245EDD7D00C51E77 /* LocationArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationArea.swift; sourceTree = "<group>"; };
 		280EBC0E245EE92600C51E77 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
 		282189E1247FBA67004DD483 /* EventCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCategory.swift; sourceTree = "<group>"; };
+		2823D52E24BCE431003B7A00 /* EventRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRealm.swift; sourceTree = "<group>"; };
+		2823D53024BCED82003B7A00 /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
+		2823D53224BCEE91003B7A00 /* EventRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepositoryImpl.swift; sourceTree = "<group>"; };
+		2823D53424BCF1A4003B7A00 /* RealmImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmImage.swift; sourceTree = "<group>"; };
 		289A9E52247FF0B300930672 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		289A9E54247FF0D500930672 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		28A22C8C24558DB30042E665 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		28AD7CC12460455300E39EFA /* MapDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailsView.swift; sourceTree = "<group>"; };
 		28AD7CC3246049FE00E39EFA /* EventAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
 		28BA4D37247EE698002DE2EF /* UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControl.swift; sourceTree = "<group>"; };
+		28CF5BD8248934DB00465EA8 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		28D280E22466C63000AEF954 /* DetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsViewController.storyboard; sourceTree = "<group>"; };
 		28D280E42466D1E300AEF954 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		28E627A324546CD4003F4966 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -196,6 +206,7 @@
 			children = (
 				84FACFF72433AF1E008EA231 /* String.swift */,
 				28BA4D37247EE698002DE2EF /* UIControl.swift */,
+				28CF5BD8248934DB00465EA8 /* UIColor.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -216,6 +227,8 @@
 				28E627A924546FFE003F4966 /* EventService.swift */,
 				28FCAF88245B08C60014B81E /* EventFacade.swift */,
 				28FCAF8A245B09650014B81E /* EventFacadeImpl.swift */,
+				2823D53024BCED82003B7A00 /* EventRepository.swift */,
+				2823D53224BCEE91003B7A00 /* EventRepositoryImpl.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -232,6 +245,8 @@
 				28FCAF75245AE89E0014B81E /* City.swift */,
 				280EBC0C245EDD7D00C51E77 /* LocationArea.swift */,
 				282189E1247FBA67004DD483 /* EventCategory.swift */,
+				2823D52E24BCE431003B7A00 /* EventRealm.swift */,
+				2823D53424BCF1A4003B7A00 /* RealmImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -653,12 +668,16 @@
 				28E627B224549332003F4966 /* Image.swift in Sources */,
 				28E627A624546F1C003F4966 /* Page.swift in Sources */,
 				84FACFF82433AF1E008EA231 /* String.swift in Sources */,
+				28CF5BD9248934DB00465EA8 /* UIColor.swift in Sources */,
 				280EBC0D245EDD7D00C51E77 /* LocationArea.swift in Sources */,
 				84F831082430B5BD0042F317 /* MapViewController.swift in Sources */,
 				282189E2247FBA67004DD483 /* EventCategory.swift in Sources */,
 				28FCAF89245B08C60014B81E /* EventFacade.swift in Sources */,
 				28FCAF87245B076F0014B81E /* InnerFeedViewPresenter.swift in Sources */,
+				2823D53524BCF1A4003B7A00 /* RealmImage.swift in Sources */,
+				2823D53324BCEE92003B7A00 /* EventRepositoryImpl.swift in Sources */,
 				84F8310D2430BEA20042F317 /* InnerFeedViewController.swift in Sources */,
+				2823D53124BCED82003B7A00 /* EventRepository.swift in Sources */,
 				289A9E53247FF0B300930672 /* ProfileViewController.swift in Sources */,
 				28E627B024548DB5003F4966 /* Location.swift in Sources */,
 				28AD7CC4246049FE00E39EFA /* EventAnnotation.swift in Sources */,
@@ -676,6 +695,7 @@
 				28E627A424546CD4003F4966 /* Event.swift in Sources */,
 				28AD7CC22460455300E39EFA /* MapDetailsView.swift in Sources */,
 				28FCAF76245AE89E0014B81E /* City.swift in Sources */,
+				2823D52F24BCE431003B7A00 /* EventRealm.swift in Sources */,
 				84FACFF124338810008EA231 /* InnerFeedViewTypeButtonsCellController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

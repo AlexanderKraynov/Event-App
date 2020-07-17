@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vky-ZD-n6T">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vky-ZD-n6T">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -27,13 +27,19 @@
                                             <constraint firstAttribute="height" constant="128" id="DSe-Gk-fH7"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7M-eB-4t5">
-                                        <rect key="frame" x="0.0" y="86" width="414" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7M-eB-4t5">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="06h-1f-H6H"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Label">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Eq7-8Z-hli">
@@ -74,7 +80,7 @@
                                     <constraint firstItem="mdm-iq-KuT" firstAttribute="leading" secondItem="CI8-3z-pGJ" secondAttribute="leading" id="EE7-KF-jkl"/>
                                     <constraint firstAttribute="height" constant="200" id="IC4-z0-oSj"/>
                                     <constraint firstAttribute="trailing" secondItem="Eq7-8Z-hli" secondAttribute="trailing" id="RW3-4d-BJg"/>
-                                    <constraint firstItem="H7M-eB-4t5" firstAttribute="top" secondItem="CI8-3z-pGJ" secondAttribute="top" constant="86" id="VbB-JB-E1L"/>
+                                    <constraint firstItem="H7M-eB-4t5" firstAttribute="top" secondItem="CI8-3z-pGJ" secondAttribute="top" id="VbB-JB-E1L"/>
                                     <constraint firstItem="Eq7-8Z-hli" firstAttribute="leading" secondItem="CI8-3z-pGJ" secondAttribute="leading" id="cvy-fz-e9F"/>
                                     <constraint firstItem="mdm-iq-KuT" firstAttribute="top" secondItem="CI8-3z-pGJ" secondAttribute="top" id="gOd-s0-953"/>
                                     <constraint firstItem="Eq7-8Z-hli" firstAttribute="top" secondItem="mdm-iq-KuT" secondAttribute="bottom" id="gyt-nE-tev"/>

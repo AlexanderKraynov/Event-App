@@ -33,7 +33,16 @@ class MapDetailsView: UIView {
             }
         }
         imageLoadTask.resume()
-        eventName.text = event.title
+       let attrString = NSAttributedString(
+        string: event.title, attributes: [
+                NSAttributedString.Key.strokeColor: UIColor.black,
+                NSAttributedString.Key.foregroundColor: UIColor.white,
+                NSAttributedString.Key.strokeWidth: -2.0,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25.0)
+        ]
+        )
+        eventName.attributedText = attrString
+        //eventName.text = event.title
         placeName.text = event.place?.title ?? ""
         placeAdress.text = event.place?.address ?? ""
         price.text = event.price

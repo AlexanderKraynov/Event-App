@@ -8,7 +8,7 @@ class InnerFeedViewPresenter {
     var view: InnerFeedViewController
     var facade: EventFacade
 
-    init (view: InnerFeedViewController, facade: EventFacade = EventFacadeImpl(service: EventServiceImpl())) {
+    init (view: InnerFeedViewController, facade: EventFacade = EventFacadeImpl(service: EventServiceImpl(), repository: EventRepositoryImpl())) {
         self.facade = facade
         self.view = view
     }

@@ -11,7 +11,7 @@ import UIKit
 import XLPagerTabStrip
 
 class InnerFeedViewController: UIViewController, IndicatorInfoProvider, UICollectionViewDataSource {
-    private var typeButtonsNames = ["Все", "Кино", "Выставки", "Концерты", "Name"]
+    private var typeButtonsNames = EventCategory.getCollection()
     var filteredEvents = [Event]()
     var userCity = City.msk
     //swiftlint:disable implicitly_unwrapped_optional
@@ -25,7 +25,7 @@ class InnerFeedViewController: UIViewController, IndicatorInfoProvider, UICollec
         super.viewDidLoad()
         //swiftlint:disable force_cast
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        userCity = City.allCases[UserDefaults.standard.object(forKey: "USER_CITY") as! Int]
+        userCity = City.allCases[UserDefaults.standard.object(forKey: "USER_CITY") as? Int ?? 0]
         if !delegate.viewsToReload.contains(self) {
             delegate.viewsToReload.append(self)
         }

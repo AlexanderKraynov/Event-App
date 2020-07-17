@@ -8,7 +8,7 @@ class MapViewPresenter {
     var facade: EventFacade
     var events = [Event]()
 
-    init (view: MapViewController, facade: EventFacade = EventFacadeImpl(service: EventServiceImpl())) {
+    init (view: MapViewController, facade: EventFacade = EventFacadeImpl(service: EventServiceImpl(), repository: EventRepositoryImpl())) {
         self.facade = facade
         self.view = view
     }

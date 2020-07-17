@@ -8,7 +8,7 @@
 
 import Foundation
 
-class KudagoDate: Decodable, Equatable {
+struct KudagoDate: Decodable, Equatable {
     let start: Date
     let end: Date
 

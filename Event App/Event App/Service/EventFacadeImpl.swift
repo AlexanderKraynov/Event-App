@@ -7,24 +7,29 @@
 //
 
 import Foundation
+import RealmSwift
 
 class EventFacadeImpl: EventFacade {
     let service: EventService
+    let repository: EventRepository
+    private var eventToken: NotificationToken?
 
-    init(service: EventService) {
+    init(service: EventService, repository: EventRepository) {
         self.service = service
+        self.repository = repository
     }
+
     func getEvents(city: City, completion: @escaping OnUpdateCompletion) {
         service.getEvents(city: city) { events in
             guard let events = events else {
                 completion(nil)
                 return
             }
-            var placeIds = [Int?]()
-            for event in events {
-                placeIds.append(event.place?.id)
-            }
-            completion(events)
+            self.repository.save(events)
+        }
+        let events = repository.getEvents()
+        eventToken = events.observe { _ in
+            completion(events.map { $0.event })
         }
     }
     func getEventsInArea(city: City, locationArea: LocationArea, completion: @escaping OnUpdateCompletion) {
@@ -46,10 +51,6 @@ class EventFacadeImpl: EventFacade {
             guard let events = events else {
                 completion(nil)
                 return
-            }
-            var placeIds = [Int?]()
-            for event in events {
-                placeIds.append(event.place?.id)
             }
             completion(events)
         }

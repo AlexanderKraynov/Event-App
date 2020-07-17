@@ -33,7 +33,7 @@ class MapViewController: UIViewController, IndicatorInfoProvider {
         super.viewDidLoad()
         //swiftlint:disable force_cast
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        userCity = City.allCases[UserDefaults.standard.object(forKey: "USER_CITY") as! Int]
+        userCity = City.allCases[UserDefaults.standard.object(forKey: "USER_CITY") as? Int ?? 0]
         if !delegate.viewsToReload.contains(self) {
             delegate.viewsToReload.append(self)
         }

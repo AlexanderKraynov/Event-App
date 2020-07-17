@@ -8,6 +8,9 @@ target 'Event App' do
   pod 'Cosmos', '~> 21.0'
   pod 'ExpandableLabel'
   pod 'DeepDiff'
+  pod 'THLabel'
+  pod 'RealmSwift'
+  pod 'Kingfisher'
   target 'Event AppTests' do
     inherit! :search_paths
     # Pods for testing

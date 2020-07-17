@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -20,23 +20,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="408" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 4" translatesAutoresizingMaskIntoConstraints="NO" id="N2Z-cl-A24">
-                        <rect key="frame" x="20" y="0.0" width="368" height="200"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7DU-TE-L3X">
+                        <rect key="frame" x="0.0" y="0.0" width="408" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="7DU-TE-L3X" secondAttribute="height" multiplier="51:25" id="yhC-Dx-8tV"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UN9-39-qGS">
-                        <rect key="frame" x="20" y="24" width="368" height="24.5"/>
-                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UN9-39-qGS" customClass="THLabel">
+                        <rect key="frame" x="20" y="24" width="368" height="21"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIp-Af-rST">
-                        <rect key="frame" x="40" y="54.5" width="328" height="23.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIp-Af-rST" customClass="THLabel">
+                        <rect key="frame" x="40" y="51" width="328" height="23.5"/>
                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="19"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjA-x1-Rzn">
-                        <rect key="frame" x="40" y="88" width="328" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjA-x1-Rzn" customClass="THLabel">
+                        <rect key="frame" x="40" y="84.5" width="328" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="KGz-oR-oaQ"/>
                         </constraints>
@@ -45,7 +48,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3m-mG-SrY" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="144" y="117" width="120" height="51"/>
+                        <rect key="frame" x="144" y="113.5" width="120" height="54.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="9u9-ap-kgA"/>
                         </constraints>
@@ -66,30 +69,28 @@
                     <constraint firstAttribute="trailing" secondItem="UN9-39-qGS" secondAttribute="trailing" constant="20" id="10q-WF-qWo"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PIp-Af-rST" secondAttribute="trailing" constant="20" id="3K3-Py-gjF"/>
                     <constraint firstItem="b3m-mG-SrY" firstAttribute="top" secondItem="XjA-x1-Rzn" secondAttribute="bottom" constant="8" id="5HW-zG-b7G"/>
-                    <constraint firstItem="N2Z-cl-A24" firstAttribute="leading" secondItem="AHK-cR-cxG" secondAttribute="leading" constant="20" id="7l9-t0-G5j"/>
+                    <constraint firstItem="7DU-TE-L3X" firstAttribute="leading" secondItem="AHK-cR-cxG" secondAttribute="leading" id="Fci-6B-Tv9"/>
                     <constraint firstItem="UN9-39-qGS" firstAttribute="top" secondItem="AHK-cR-cxG" secondAttribute="top" constant="24" id="GOG-ew-eRX"/>
                     <constraint firstItem="XjA-x1-Rzn" firstAttribute="leading" secondItem="AHK-cR-cxG" secondAttribute="leadingMargin" constant="20" id="JXm-he-egY"/>
+                    <constraint firstAttribute="trailing" secondItem="7DU-TE-L3X" secondAttribute="trailing" id="NIN-iu-fvd"/>
                     <constraint firstItem="b3m-mG-SrY" firstAttribute="centerX" secondItem="AHK-cR-cxG" secondAttribute="centerX" id="OIo-vP-NT2"/>
-                    <constraint firstAttribute="trailing" secondItem="N2Z-cl-A24" secondAttribute="trailing" constant="20" id="S2F-uB-G8j"/>
+                    <constraint firstItem="7DU-TE-L3X" firstAttribute="top" secondItem="AHK-cR-cxG" secondAttribute="top" id="RBV-Za-ZiI"/>
                     <constraint firstAttribute="bottomMargin" secondItem="b3m-mG-SrY" secondAttribute="bottom" constant="21" id="Zjf-pt-gbc"/>
                     <constraint firstItem="XjA-x1-Rzn" firstAttribute="top" secondItem="PIp-Af-rST" secondAttribute="bottom" constant="10" id="bux-ky-epy"/>
-                    <constraint firstItem="N2Z-cl-A24" firstAttribute="top" secondItem="AHK-cR-cxG" secondAttribute="top" id="cvB-fp-usi"/>
                     <constraint firstAttribute="trailingMargin" secondItem="XjA-x1-Rzn" secondAttribute="trailing" constant="20" id="fZk-qc-CGG"/>
-                    <constraint firstAttribute="bottom" secondItem="N2Z-cl-A24" secondAttribute="bottom" id="gvk-Aa-ErA"/>
                     <constraint firstItem="UN9-39-qGS" firstAttribute="leading" secondItem="AHK-cR-cxG" secondAttribute="leading" constant="20" id="kPW-kF-97J"/>
                     <constraint firstItem="PIp-Af-rST" firstAttribute="leading" secondItem="AHK-cR-cxG" secondAttribute="leadingMargin" constant="20" id="so2-yy-ZJG"/>
+                    <constraint firstAttribute="bottom" secondItem="7DU-TE-L3X" secondAttribute="bottom" id="vaG-jB-WaB"/>
                     <constraint firstItem="PIp-Af-rST" firstAttribute="top" secondItem="UN9-39-qGS" secondAttribute="bottom" constant="6" id="zGg-Ka-gMk"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateLabel" destination="PIp-Af-rST" id="Ti3-1d-yA1"/>
+                <outlet property="eventImage" destination="7DU-TE-L3X" id="C68-Nw-heK"/>
                 <outlet property="locationLabel" destination="XjA-x1-Rzn" id="vvy-NF-nkj"/>
                 <outlet property="titleLabel" destination="UN9-39-qGS" id="d0m-ml-SiW"/>
             </connections>
             <point key="canvasLocation" x="-115.94202898550725" y="103.79464285714285"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="Rectangle 4" width="331" height="152"/>
-    </resources>
 </document>
